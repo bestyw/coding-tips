@@ -13,7 +13,7 @@
 ### debug 相关
 
 #### accelerate launch 的 launch.json文件编写
-与使用python命令进行launch的区别在于，去掉```"program": "${file}",```，转而使用```"module": "accelerate.commands.launch",```，要**注意**的是，```"args"```也要做修改，第一项须为待调试的python文件名称
+与使用python命令进行launch的区别在于，去掉```"program": "${file}",```，转而使用```"module": "accelerate.commands.launch",```，要**注意**的是，```"args"```也要做修改，第一项须为待调试的python文件名称  
 示例  
 ```python 
 // lanch json for diffusers textural inversion
