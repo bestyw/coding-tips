@@ -4,10 +4,27 @@
 
 在深度学习pytorch框架中，class中定义了forward()函数，则在本类中，其他函数中，调用self(x)，即调用forward函数
 
+
+# 深度学习训练tips
 ### pytorch lightning 中文教程
 > https://zhuanlan.zhihu.com/p/319810661  
 > https://zhuanlan.zhihu.com/p/353985363
 
+### 一种较好的config读入方式
+default yaml文件 + 其他 yaml 文件  
+argparse 读入用户自定义的config文件，再通过定义```load_config()```函数，读入 default config 的yaml文件，结合```parser.parse_known_args()``` 和 ```update_config(config, unknown)```函数，载入所有的yaml文件
+示例
+```pyrhon
+# Arguments
+parser = argparse.ArgumentParser(
+    description='Train a GAN with different regularization strategies.'
+)
+parser.add_argument('--config', type=str, help='Path to config file.')
+
+args, unknown = parser.parse_known_args() 
+config = load_config(args.config, 'configs/default.yaml')
+config = update_config(config, unknown)
+```
 # vscode tips
 
 ### debug 相关
