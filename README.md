@@ -4,13 +4,34 @@
 
 在深度学习pytorch框架中，class中定义了forward()函数，则在本类中，其他函数中，调用self(x)，即调用forward函数
 
+### @修饰器的用法
+```python
+def funA(desA):
+ print("It's funA")
+ 
+def funB(desB):
+ print("It's funB")
+ 
+@funA
+def funC():
+ print("It's funC")
+```
+把funC()赋值给funA的形参
 
+### hydra
+通过给@hydra.main()装饰器函数传入一个config_path来指定参数文件  
+示例
+```python
+@hydra.main(config_path="conf/config.yaml")
+def test(cfg):
+    print(cfg.pretty())
+```
 # 深度学习训练tips
 ### pytorch lightning 中文教程
 > https://zhuanlan.zhihu.com/p/319810661  
 > https://zhuanlan.zhihu.com/p/353985363
 
-### 一种较好的config读入方式
+### 一种较好的config读入方式 —— 1 读入yaml配置文件
 default yaml文件 + 其他 yaml 文件  
 argparse 读入用户自定义的config文件，再通过定义```load_config()```函数，读入 default config 的yaml文件，结合```parser.parse_known_args()``` 和 ```update_config(config, unknown)```函数，载入所有的yaml文件
 示例
@@ -25,6 +46,8 @@ args, unknown = parser.parse_known_args()
 config = load_config(args.config, 'configs/default.yaml')
 config = update_config(config, unknown)
 ```
+### 一种较好的config读入方式 —— 2 OmegaConfig + hydra
+
 # vscode tips
 
 ### debug 相关
