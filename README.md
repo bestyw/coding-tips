@@ -26,6 +26,8 @@ def funC():
 def test(cfg):
     print(cfg.pretty())
 ```
+config.yaml会在你运行应用程序的时候自动加载。可以通过命令行输入的参数来对配置文件中的参数进行覆盖  
+
 # 深度学习训练tips
 ### pytorch lightning 中文教程
 > https://zhuanlan.zhihu.com/p/319810661  
